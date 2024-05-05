@@ -12,7 +12,7 @@ A. - `EventSource`: Used in web development to receive real-time updates from a 
 
 - `EventEmitter`: In Node.js, an `EventEmitter` is a built-in class that facilitates communication between objects in an event-driven manner. It provides an implementation of the observer pattern, where objects can emit named events to which other objects (listeners) can subscribe. When an event is emitted, all subscribed listeners are notified and executed asynchronously. This pattern is commonly used for decoupled communication between different parts of a Node.js application.
 
-# 3. Wahys to Execute async functions in Series?
+# 3. Ways to Execute async functions in Series?
 A. 1. using async/await 
 
 const asyncSeriesExecuter = async function (promises) {
