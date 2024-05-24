@@ -74,7 +74,7 @@ Reduced Server Load: By serving cached resources directly from the user's device
 
 Improved User Experience: Faster page load times, offline access, and seamless transitions between online and offline modes contribute to an improved overall user experience, leading to higher user engagement and satisfaction.
 
-# tell different caching strategies for service workers
+# different caching strategies for service workers
 
 Cache-First: In this strategy, the service worker checks the cache first for the requested resource. If the resource is found in the cache, it's served directly to the user. If the resource is not in the cache, the service worker fetches it from the network, stores a copy in the cache for future use, and then serves it to the user.
 
