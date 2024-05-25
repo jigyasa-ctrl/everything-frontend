@@ -93,3 +93,18 @@ Cache-Then-Network: This strategy involves serving the cached version of the res
 Service workers are scripts that run in the background of a web application, separate from the main browser thread. They are designed to handle tasks like network requests, caching resources, and enabling features such as offline access and push notifications
 
 Web workers are also scripts that run in the background of a web application, but their primary purpose is to offload CPU-intensive tasks from the main browser thread. They are used for tasks such as complex calculations, data processing, or continuous background tasks.
+
+# What is the difference between debouncing and throttling?
+
+● Debouncing :- It is used to invoke/call/execute functions only
+when things have stopped happening for a given specific time.
+For example, Call a search function to fetch the result when the
+user has stopped typing in the search box. If the user keeps on
+typing then reset the function.
+
+● Throttling :- It is used to restrict the no of time a function can be
+called/invoked/executes. For example, making an API call to the
+server on the user’s click. If the user spam’s the click then also
+there will be specific calls only. Like, make each call after 10
+seconds.
+
