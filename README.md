@@ -108,3 +108,24 @@ server on the user’s click. If the user spam’s the click then also
 there will be specific calls only. Like, make each call after 10
 seconds.
 
+# Slice vs Splice ?
+
+Use slice() to create a new array containing a subset of elements from the original array without modifying the original array.
+
+eg -> const fruits = ['apple', 'banana', 'orange', 'grape', 'kiwi'];
+const citrus = fruits.slice(2, 4);
+console.log(citrus); // Output: ['orange', 'grape']
+
+
+Use splice() to modify the original array by removing, replacing, or adding elements in place.
+
+eg -> 
+syntax - array.splice(start, deleteCount, item1, item2, ...)
+
+const numbers = [1, 2, 3, 4, 5];
+numbers.splice(2, 1); // Removes one element starting at index 2
+console.log(numbers); // Output: [1, 2, 4, 5]
+
+numbers.splice(2, 0, 6, 7); // Inserts elements 6 and 7 at index 2
+console.log(numbers); // Output: [1, 2, 6, 7, 4, 5]
+
