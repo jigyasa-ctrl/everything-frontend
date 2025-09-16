@@ -129,3 +129,23 @@ console.log(numbers); // Output: [1, 2, 4, 5]
 numbers.splice(2, 0, 6, 7); // Inserts elements 6 and 7 at index 2
 console.log(numbers); // Output: [1, 2, 6, 7, 4, 5]
 
+# What techniques do you use to ensure responsive design in your projects?
+
+I follow a mobile-first approach, using CSS grid and flexbox for fluid layouts, relative units instead of fixed pixels(%, em, rem, vw/vh etc), and media queries for breakpoints. I rely on modern techniques like clamp() for responsive typography and srcset/picture for responsive images. I also test designs in Chrome DevTools and real devices to ensure a consistent experience. For React apps, I sometimes pair this with utility-first CSS like Tailwind to manage responsiveness efficiently.
+
+# Can you describe a challenging project and how you overcame obstacles?
+
+In one of my recent projects, I was building a frontend application that integrated AI-powered code review using a local LLM (Ollama) with a Next.js UI. The challenge was that the LLM responses were slow and unpredictable, and on the frontend, this caused UI freezes and poor user experience.This turned the app from a laggy experience into a smooth, interactive one. 
+
+# how to maintain smooth animation while maintaining 60fps on low end device??
+
+To maintain 60fps even on low-end devices, I ensure animations run on the GPU-friendly properties like transform and opacity instead of layout-triggering ones like transition top, width, etc. I optimize event-driven animations with requestAnimationFrame, and use CSS transitions when possible since they bypass the JS thread. For heavy lists, I use virtualization, and for computationally expensive work, I offload to Web Workers or break into smaller chunks. I also profile with DevTools to detect dropped frames and optimize accordingly.
+
+transform (translate, scale, rotate)
+
+window.addEventListener("scroll", () => {
+  requestAnimationFrame(onScroll);  // ✅ smooth sync with paint cycle
+});
+
+# how to prevvent memory leaks in long running application react??
+In React, memory leaks usually happen when we leave behind subscriptions, async requests, or event listeners after a component unmounts. I prevent them by always cleaning up effects with return in useEffect, canceling fetch requests with AbortController, clearing timers, and removing event listeners. For long-running apps, I also monitor memory usage in DevTools to ensure no detached DOM nodes or unused listeners pile up.
