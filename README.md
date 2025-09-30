@@ -149,3 +149,45 @@ window.addEventListener("scroll", () => {
 
 # how to prevvent memory leaks in long running application react??
 In React, memory leaks usually happen when we leave behind subscriptions, async requests, or event listeners after a component unmounts. I prevent them by always cleaning up effects with return in useEffect, canceling fetch requests with AbortController, clearing timers, and removing event listeners. For long-running apps, I also monitor memory usage in DevTools to ensure no detached DOM nodes or unused listeners pile up.
+
+# What is the type of null? Why is it an object?
+typeof null returns "object" because of a historical bug in JavaScript’s implementation.
+This was a bug, but it got locked into the language for backward compatibility.
+In reality, null is a primitive type, not an object.
+
+# Controlled Components vs uncontrolled Components ?
+Controlled components are the components which are controlled by the reacr states. Use these when comp needs to update state on render.
+use these for dynamic behaviour like showing the password strength as and when the user types.
+
+uncontrolled comp are controlled by DOM. Use this one when the details are only required at the end. eg in forms. Use semantic HTML + useRef to get data from forms.
+use them if u just have a basic html form and extract values from form at the end of the submisssion.
+
+Example -> form, counter
+
+# transform vs translate in CSS ?
+transform is a CSS property that applies 2D or 3D transformations to an element (translate, rotate, scale, skew, etc.).
+
+translate(...) is one of the transform functions — it moves (shifts) an element along X / Y / Z axes without affecting document flow.
+
+Translate - Does not affect layout flow — translated elements still occupy their original position for layout (no reflow).
+transform is GPU-friendly, so animating transform (and opacity) is preferred for smooth animations.
+
+# What is event delegation ?
+
+Event delegation is a pattern where you attach a single event listener to a parent element to handle events from its child elements, instead of attaching separate listeners to each child.
+It works because of event bubbling: when an event is fired on a child, it bubbles up through its ancestors, so the parent can "catch" it.
+Performance → fewer event listeners = less memory usage.
+Dynamic elements → works even for elements added later to the DOM.
+Cleaner code → one handler for many elements.
+
+# useEffect vs uselayoutEffect() ?
+useEffect → async, runs after paint → does not block UI.
+useLayoutEffect → sync, runs before paint → can block UI if heavy.
+
+Rule of thumb:
+Use useEffect for most side effects. for API calls, subscriptions, logging, timers.
+Use useLayoutEffect only when you need to measure or synchronously modify the DOM before paint. for measuring DOM, scroll sync, animations.
+
+# What is code splitting and how do you do it in React
+
+Code splitting is splitting large JS bundles into smaller chunks that load on demand. In React, we usually do it with React.lazy and Suspense, or at the routing level, so the app loads faster and only downloads code when required.
