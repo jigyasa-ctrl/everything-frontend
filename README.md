@@ -188,9 +188,55 @@ Rule of thumb:
 Use useEffect for most side effects. for API calls, subscriptions, logging, timers.
 Use useLayoutEffect only when you need to measure or synchronously modify the DOM before paint. for measuring DOM, scroll sync, animations.
 
+# What are the advantages of using Server-Side Rendering (SSR) with React?
+SSR advantages in React:
+
+✅ Better SEO & discoverability 
+By default, React is client-side rendered (CSR), meaning the initial HTML is mostly empty, and content is rendered via JavaScript.
+SSR generates full HTML on the server, which search engines can easily crawl.
+This is crucial for content-heavy sites like blogs, e-commerce, and marketing pages.
+
+✅ Faster initial page load (FCP)
+SSR sends a fully rendered HTML page to the browser.
+Users see meaningful content faster, even before all JavaScript loads.
+This improves perceived performance, which is especially important on slow networks.
+
+✅ Improved performance on low-end devices
+In CSR, the client device executes JavaScript to render the app.
+SSR shifts the rendering workload to the server, reducing the burden on low-powered devices.
+
+✅ Enhanced user experience
+Users can interact with content faster because the initial HTML is already rendered.
+
+✅ Accurate analytics & crawler indexing
+Many tracking scripts and crawlers rely on HTML content available on page load.
+
+✅ Seamless hydration to CSR for interactivity
+The server-rendered HTML is hydrated on the client to become a fully interactive React app.
+This gives the best of both worlds: SEO/performance + client-side interactivity.
+
 # What is code splitting and how do you do it in React
 
 Code splitting is splitting large JS bundles into smaller chunks that load on demand. In React, we usually do it with React.lazy and Suspense, or at the routing level, so the app loads faster and only downloads code when required.
+
+# How can you prevent unnecessary re-renders in functional components?
+1. React.memo -> component will re-render only if props change.
+2. usememo
+3. usecallback
+4. useReducer instead of useState to update only specific state and componentens
+5. useRef of immutable values, instead of useState
+6. Conditional Rendering
+7. Split Components into smaller memoized components - Smaller components re-render independently, reducing unnecessary work.
+
+# What is React’s Strict Mode and how does it help in development ?
+React’s Strict Mode is a development-only tool that helps you write safer and more resilient React applications.
+✅ Early detection of bugs in development.
+✅ Helps migrate away from legacy React features.
+✅ Encourages writing pure components and effects.
+✅ Makes your app more future-proof for upcoming React versions.
+Detecting unexpected side effects
+Identifying unsafe lifecycle methods
+
 
 # What are the limitations of React in large-scale applications ?
 
