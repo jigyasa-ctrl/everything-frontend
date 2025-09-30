@@ -191,3 +191,59 @@ Use useLayoutEffect only when you need to measure or synchronously modify the DO
 # What is code splitting and how do you do it in React
 
 Code splitting is splitting large JS bundles into smaller chunks that load on demand. In React, we usually do it with React.lazy and Suspense, or at the routing level, so the app loads faster and only downloads code when required.
+
+# What are the limitations of React in large-scale applications ?
+
+1. State Management Complexity
+
+As apps grow, lifting state up or passing props down deeply becomes messy (“prop drilling”).
+
+Solutions like Redux, Zustand, Jotai, or Context API help, but they add boilerplate or learning overhead.
+
+Improper state management can lead to performance issues and hard-to-maintain code.
+
+2. Boilerplate & Architectural Decisions
+
+React gives flexibility, but no enforced architecture.
+
+In large teams, this can lead to inconsistent patterns, e.g., mixing hooks with class components or multiple state management libraries.
+
+Without clear guidelines, technical debt accumulates quickly.
+
+3. Performance Bottlenecks
+
+Frequent re-renders in large component trees can hurt performance if memoization and optimization techniques (like React.memo, useMemo, useCallback) are not used properly.
+
+Complex calculations or large lists require virtualization libraries (e.g., react-window) to avoid rendering lag.
+
+4. Code Splitting & Bundle Size
+
+Large apps can have huge JS bundles.
+
+React alone doesn’t handle lazy loading automatically — you need to implement code splitting, dynamic imports, and route-based chunking.
+
+Poorly handled, this can lead to slow initial load times.
+
+5. SEO Challenges
+
+React is client-side rendered by default, which is bad for SEO if search engines can’t crawl your content.
+
+Workarounds like Next.js or Gatsby (SSR/SSG) are needed for proper SEO.
+
+6. Debugging & DevTools Overhead
+
+Large React apps can produce complex component hierarchies, making debugging state changes and props flows harder.
+
+DevTools help, but inspecting deeply nested components is still challenging.
+
+7. Lack of Built-in Routing or HTTP Handling
+
+Unlike frameworks (e.g., Angular, Vue), React doesn’t provide routing or HTTP utilities out of the box.
+
+You must rely on react-router, axios/fetch, or other libraries, which increases dependencies and potential inconsistencies.
+
+8. Long-term Maintainability
+
+Mixing class and functional components, or overusing Context, can make refactoring a nightmare.
+
+In large teams, coding standards and strict linting are essential to prevent unmaintainable code.
